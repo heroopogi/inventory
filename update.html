@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Medicine - Inventory System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg custom-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><i class="fas fa-capsules me-2"></i>Medicine Inventory</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="create.html"><i class="fas fa-plus"></i> Add Medicine</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="read.html"><i class="fas fa-list"></i> View Inventory</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="update.html"><i class="fas fa-edit"></i> Update Medicine</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="delete.html"><i class="fas fa-trash"></i> Delete Medicine</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="dashboard-header">
+                    <h2><i class="fas fa-edit me-2"></i>Update Medicine</h2>
+                    <p class="text-muted">Modify medicine information</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="activity-card">
+                    <div class="activity-body">
+                        <form id="updateMedicineForm" action="includes/update_medicine.php" method="POST">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="medicineId" class="form-label">Medicine ID</label>
+                                        <input type="number" class="form-control" id="medicineId" name="medicineId" required>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="medicineName" class="form-label">Medicine Name</label>
+                                        <input type="text" class="form-control" id="medicineName" name="medicineName" required>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="genericName" class="form-label">Generic Name</label>
+                                        <input type="text" class="form-control" id="genericName" name="genericName" required>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="category" class="form-label">Category</label>
+                                        <select class="form-select" id="category" name="category" required>
+                                            <option value="">Select Category</option>
+                                            <option value="antibiotics">Antibiotics</option>
+                                            <option value="analgesics">Analgesics</option>
+                                            <option value="antiviral">Antiviral</option>
+                                            <option value="others">Others</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="quantity" class="form-label">Quantity</label>
+                                        <input type="number" class="form-control" id="quantity" name="quantity" required>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="price" class="form-label">Price</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">₱</span>
+                                            <input type="number" class="form-control" id="price" name="price" step="0.01" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="expiryDate" class="form-label">Expiry Date</label>
+                                        <input type="date" class="form-control" id="expiryDate" name="expiryDate" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <button type="button" class="btn btn-outline-secondary me-2" onclick="window.location.href='read.html'">Cancel</button>
+                                <button type="submit" class="btn btn-warning">
+                                    <i class="fas fa-save me-2"></i>Update Medicine
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>

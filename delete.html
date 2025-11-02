@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Medicine - Inventory System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg custom-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><i class="fas fa-capsules me-2"></i>Medicine Inventory</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="create.html"><i class="fas fa-plus"></i> Add Medicine</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="read.html"><i class="fas fa-list"></i> View Inventory</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="update.html"><i class="fas fa-edit"></i> Update Medicine</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="delete.html"><i class="fas fa-trash"></i> Delete Medicine</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="dashboard-header">
+                    <h2><i class="fas fa-trash-alt me-2"></i>Delete Medicine</h2>
+                    <p class="text-muted">Remove medicine from inventory</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <h5><i class="fas fa-exclamation-triangle me-2"></i>Warning</h5>
+                    </div>
+                    <div class="activity-body">
+                        <div class="alert alert-warning">
+                            <i class="fas fa-exclamation-circle me-2"></i>
+                            This action cannot be undone. Please be certain before deleting any medicine from the inventory.
+                        </div>
+                        <form id="deleteMedicineForm" action="process/delete_medicine.php" method="POST">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="medicineId" class="form-label">Medicine ID</label>
+                                        <input type="number" class="form-control" id="medicineId" name="medicineId" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="confirmDelete" class="form-label">Type "DELETE" to confirm</label>
+                                        <input type="text" class="form-control" id="confirmDelete" name="confirmDelete" required 
+                                            pattern="DELETE" title="Please type 'DELETE' to confirm">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <button type="button" class="btn btn-outline-secondary me-2" onclick="window.location.href='read.html'">Cancel</button>
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="fas fa-trash-alt me-2"></i>Delete Medicine
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
